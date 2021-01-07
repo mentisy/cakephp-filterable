@@ -1,0 +1,41 @@
+{
+    "name": "avolle/cakephp-filterable",
+    "description": "CakePHP Plugin to filter database fields",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "filter", "filterable", "query"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Volle",
+            "email": "filterable@avolle.com"
+        }
+    ],
+    "require": {
+        "cakephp/cakephp": "~4.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5.0 || ^9.3",
+        "phpstan/phpstan": "^0.12.30",
+        "cakephp/cakephp-codesniffer": "~4.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Avolle\\Filterable\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Avolle\\Filterable\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-check": "phpcs -p ./src ./tests",
+        "cs-fix": "phpcbf ./src ./tests",
+        "stan": "phpstan analyze",
+        "test": "phpunit --colors=always"
+    }
+}

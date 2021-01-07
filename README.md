@@ -1,0 +1,1 @@
+# Filterable plugin for CakePHP
