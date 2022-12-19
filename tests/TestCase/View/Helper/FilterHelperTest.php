@@ -138,6 +138,31 @@ class FilterHelperTest extends TestCase
     }
 
     /**
+     * Test link method
+     * Link does not remove unrelated query string (?something=else).
+     *
+     * @return void
+     * @uses \Avolle\Filterable\View\Helper\FilterHelper::link()
+     */
+    public function testLinkDoesNotRemoveUnrelatedQueryString(): void
+    {
+        $request = $this->makeRequest(
+            '/',
+            ['something' => 'else', 'filter' => ['location', 'type'], 'value' => ['firstLocation', 'firstType']],
+        );
+        $view = new View($request);
+        $this->Filter = new FilterHelper($view);
+
+        $actual = $this->Filter->link('Title', 'type', 'firstType');
+        $expected = [
+            'a' => ['href' => $this->replaceBrackets('/tools/index?something=else&amp;filter[0]=location&amp;value[0]=firstLocation')],
+            'Title',
+            '/a',
+        ];
+        $this->assertHtml($expected, $actual);
+    }
+
+    /**
      * Test isCurrentFilter method
      *
      * @return void

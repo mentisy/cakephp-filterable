@@ -30,6 +30,13 @@ class FilterHelper extends Helper
     ];
 
     /**
+     * Unmodified query params from request.
+     *
+     * @var array
+     */
+    protected array $queryParams = [];
+
+    /**
      * URI query from request
      *
      * @var array
@@ -46,7 +53,7 @@ class FilterHelper extends Helper
     {
         parent::__construct($view, $config);
 
-        $queryParams = $view->getRequest()->getQueryParams();
+        $this->queryParams = $queryParams = $view->getRequest()->getQueryParams();
         if (isset($queryParams['filter']) && isset($queryParams['value'])) {
             $this->collectActiveFilters($queryParams);
         }
@@ -121,7 +128,8 @@ class FilterHelper extends Helper
             $queryUrl['filter'][] = $field;
             $queryUrl['value'][] = $value;
         }
+        $otherQueries = array_diff_key($this->queryParams, $queryUrl);
 
-        return $queryUrl;
+        return array_merge($otherQueries, $queryUrl);
     }
 }
