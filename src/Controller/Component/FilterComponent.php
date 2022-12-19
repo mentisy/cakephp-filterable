@@ -17,7 +17,7 @@ class FilterComponent extends Component
      * - allowAll - Whether to allow filtering all fields or only from the allowList configuration
      * - allowList - Only allow filtering the configured database fields
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $_defaultConfig = [
         'allowAll' => false,

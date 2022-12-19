@@ -16,7 +16,7 @@ class FilterHelper extends Helper
     /**
      * Default configuration.
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $_defaultConfig = [];
 
@@ -85,7 +85,7 @@ class FilterHelper extends Helper
     }
 
     /**
-     * Gather up the active filters
+     * Gather the active filters
      *
      * @param array $queryParams Request query parameters
      * @return void
