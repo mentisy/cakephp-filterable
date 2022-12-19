@@ -5,7 +5,7 @@ namespace Avolle\Filterable\Controller\Component;
 
 use Cake\Controller\Component;
 use Cake\Controller\ComponentRegistry;
-use Cake\ORM\Query;
+use Cake\Database\Query\SelectQuery;
 
 /**
  * Filter component
@@ -47,10 +47,10 @@ class FilterComponent extends Component
     /**
      * Apply filter conditions to query object
      *
-     * @param \Cake\ORM\Query $query Query object
-     * @return \Cake\ORM\Query
+     * @param \Cake\ORM\Query\SelectQuery $query Query object
+     * @return \Cake\ORM\Query\SelectQuery
      */
-    public function applyConditions(Query $query): Query
+    public function applyConditions(SelectQuery $query): SelectQuery
     {
         return $query->where($this->conditions);
     }
