@@ -18,14 +18,14 @@ class FilterHelper extends Helper
      *
      * @var array<string, mixed>
      */
-    protected $_defaultConfig = [];
+    protected array $_defaultConfig = [];
 
     /**
      * List of helpers used by this helper
      *
      * @var array
      */
-    protected $helpers = [
+    protected array $helpers = [
         'Html',
     ];
 
@@ -62,13 +62,13 @@ class FilterHelper extends Helper
     /**
      * Creates an HTML query string link
      *
-     * @param string|array $title The content to be wrapped by `<a>` tags.
+     * @param array|string $title The content to be wrapped by `<a>` tags.
      * @param string $field Field
      * @param string $value Value
      * @param array $options Array of options and HTML attributes.
      * @return string An `<a />` element.
      */
-    public function link($title, string $field, string $value, array $options = []): string
+    public function link(array|string $title, string $field, string $value, array $options = []): string
     {
         $queryUrl = $this->buildQuery($field, $value);
 
@@ -112,7 +112,7 @@ class FilterHelper extends Helper
      *
      * @param string $field Field to add or remove filter
      * @param string $value Value to filter field
-     * @return array[]
+     * @return array<array>
      */
     protected function buildQuery(string $field, string $value): array
     {

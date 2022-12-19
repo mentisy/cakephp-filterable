@@ -59,7 +59,7 @@ class FilterHelperTest extends TestCase
      * @return void
      * @uses \Avolle\Filterable\View\Helper\FilterHelper::link
      */
-    public function testLinkWithoutPriorFilter()
+    public function testLinkWithoutPriorFilter(): void
     {
         $actual = $this->Filter->link('Title', 'field', 'value');
         $expected = [
@@ -77,7 +77,7 @@ class FilterHelperTest extends TestCase
      * @return void
      * @uses \Avolle\Filterable\View\Helper\FilterHelper::link
      */
-    public function testLinkWithPriorFilter()
+    public function testLinkWithPriorFilter(): void
     {
         $request = $this->makeRequest('/', ['filter' => ['field'], 'value' => ['value']]);
         $view = new View($request);
@@ -99,7 +99,7 @@ class FilterHelperTest extends TestCase
      * @return void
      * @uses \Avolle\Filterable\View\Helper\FilterHelper::link
      */
-    public function testLinkWithPriorFilterButAddAnother()
+    public function testLinkWithPriorFilterButAddAnother(): void
     {
         $request = $this->makeRequest('/', ['filter' => ['location'], 'value' => ['firstLocation']]);
         $view = new View($request);
@@ -122,7 +122,7 @@ class FilterHelperTest extends TestCase
      * @return void
      * @uses \Avolle\Filterable\View\Helper\FilterHelper::link
      */
-    public function testLinkWithPriorFiltersButRemoveOne()
+    public function testLinkWithPriorFiltersButRemoveOne(): void
     {
         $request = $this->makeRequest('/', ['filter' => ['location', 'type'], 'value' => ['firstLocation', 'firstType']]);
         $view = new View($request);
