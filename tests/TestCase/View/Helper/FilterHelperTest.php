@@ -35,8 +35,8 @@ class FilterHelperTest extends TestCase
         $view = new View($request);
         $this->Filter = new FilterHelper($view);
 
-        Router::reload();
-        Router::connect('/{controller}/{action}/*');
+        $routeBuilder = Router::createRouteBuilder('/');
+        $routeBuilder->connect('/{controller}/{action}/*');
         Router::setRequest($request);
     }
 
