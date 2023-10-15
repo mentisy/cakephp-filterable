@@ -1,6 +1,6 @@
 {
     "name": "avolle/cakephp-filterable",
-    "description": "CakePHP Plugin to filter database fields",
+    "description": "CakePHP Plugin to add user-filters on results based on database fields",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "filter", "filterable", "query"],
     "license": "MIT",
@@ -11,12 +11,13 @@
         }
     ],
     "require": {
-        "cakephp/cakephp": "^4.2"
+        "php": "^8.1",
+        "cakephp/cakephp": "^5.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5.0 || ^9.3",
+        "phpunit/phpunit": "^10.1.0",
         "phpstan/phpstan": "^1.9",
-        "cakephp/cakephp-codesniffer": "^4.2"
+        "cakephp/cakephp-codesniffer": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -38,6 +39,7 @@
         "stan": "phpstan analyze",
         "test": "phpunit --colors=always"
     },
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
