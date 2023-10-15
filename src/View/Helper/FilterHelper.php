@@ -39,7 +39,7 @@ class FilterHelper extends Helper
     /**
      * URI query from request
      *
-     * @var array
+     * @var array<string, string>
      */
     protected array $requestQuery = [];
 
