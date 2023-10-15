@@ -8,6 +8,6 @@ use Cake\Core\BasePlugin;
 /**
  * Plugin for Filterable
  */
-class Plugin extends BasePlugin
+class FilterablePlugin extends BasePlugin
 {
 }
